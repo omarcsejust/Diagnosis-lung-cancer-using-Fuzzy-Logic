@@ -48,17 +48,69 @@
     
     $diagnosis = new Diagnosis();
     $disease = $diagnosis->findDisease($small_cell_cancer, $non_small_cell_cancer);
-  	echo '<pre>';
-  	print_r($small_cell_cancer);
-
-  	echo '<pre>';
-  	print_r($non_small_cell_cancer);
-
-  	echo $disease;
 
   	$result = $diagnosis->calculateDiseaseStage($non_small_cell_cancer);
-  	echo '<pre>';
-  	print_r($result);
+    
   }
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en-us">
+<meta charset="utf-8" />
+<head>
+    <title>User Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/user_form.js"  type="text/javascript"></script>
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+</head>
+<body>
+  <div class="cotainer">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <h4 class="bg-primary" style="color:#ffff; padding: 10px; margin-top: 10px">Probable Type of Your Lung Cancer: <?php echo $disease; ?> </h4>
+        <table class="table table-bordered table-dark">
+          <thead class="table-bright">
+            <td>Value</td>
+            <td>Stage</td>
+          </thead>
+          <tr>
+            <td><?php echo $result[0];?></td>
+            <td>No Cancer</td>
+          </tr>
+
+          <tr>
+            <td><?php echo $result[1];?></td>
+            <td>Probable Stage</td>
+          </tr>
+
+          <tr>
+            <td><?php echo $result[2];?></td>
+            <td>Low Stage</td>
+          </tr>
+
+          <tr>
+            <td><?php echo $result[3];?></td>
+            <td>Medium Stage</td>
+          </tr>
+
+          <tr>
+            <td><?php echo $result[4];?></td>
+            <td>High Stage</td>
+          </tr>
+
+          <tr>
+            <td><?php echo $result[5];?></td>
+            <td>Critacal Stage</td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </div>
+</body>
